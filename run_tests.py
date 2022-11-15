@@ -4,9 +4,9 @@ import os
 import sys
 
 input_path = 'input/power_law_36n_140e.egr'
-cuda_path = ['cuda/sssp/', 'cuda/bfs/', 'cuda/cc/', 'cuda/mis/', 'cuda/pr', 'cuda/tc']
-omp_path = ['omp/sssp/', 'omp/bfs/', 'omp/cc/', 'omp/mis/', 'omp/pr', 'omp/tc']
-cpp_path = ['cpp/sssp/', 'cpp/bfs/', 'cpp/cc/', 'cpp/mis/', 'cpp/pr', 'cpp/tc']
+cuda_path = ['codes/cuda/sssp-cuda/', 'codes/cuda/bfs-cuda/', 'codes/cuda/cc-cuda/', 'codes/cuda/mis-cuda/', 'codes/cuda/pr-cuda/', 'codes/cuda/tc-cuda/']
+omp_path = ['codes/omp/sssp-omp/', 'codes/omp/bfs-omp/', 'codes/omp/cc-omp/', 'codes/omp/mis-omp/', 'codes/omp/pr-omp/', 'codes/omp/tc-omp/']
+cpp_path = ['codes/cpp/sssp-cpp/', 'codes/cpp/bfs-cpp/', 'codes/cpp/cc-cpp/', 'codes/cpp/mis-cpp/', 'codes/cpp/pr-cpp/', 'codes/cpp/tc-cpp/']
 
 if __name__ == "__main__":
     # read command line

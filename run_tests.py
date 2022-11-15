@@ -7,6 +7,7 @@ input_path = 'input/power_law_36n_140e.egr'
 cuda_path = ['codes/cuda/sssp-cuda/', 'codes/cuda/bfs-cuda/', 'codes/cuda/cc-cuda/', 'codes/cuda/mis-cuda/', 'codes/cuda/pr-cuda/', 'codes/cuda/tc-cuda/']
 omp_path = ['codes/omp/sssp-omp/', 'codes/omp/bfs-omp/', 'codes/omp/cc-omp/', 'codes/omp/mis-omp/', 'codes/omp/pr-omp/', 'codes/omp/tc-omp/']
 cpp_path = ['codes/cpp/sssp-cpp/', 'codes/cpp/bfs-cpp/', 'codes/cpp/cc-cpp/', 'codes/cpp/mis-cpp/', 'codes/cpp/pr-cpp/', 'codes/cpp/tc-cpp/']
+source = 0
 
 if __name__ == "__main__":
     # read command line
@@ -27,7 +28,10 @@ if __name__ == "__main__":
                     print('\ncompile : %s\n' % code_file)
                     sys.stdout.flush()
                     os.system('nvcc %s -O3 -arch=sm_70 -Iindigo_include -o minibenchmark' % file_path)
-                    os.system('./minibenchmark %s %s' % (input_path, verify))
+                    if 'sssp' in code_path or 'bfs' in code_path:
+                        os.system('./minibenchmark %s %s' % (input_path, source, verify))
+                    else:
+                        os.system('./minibenchmark %s %s' % (input_path, verify))
                     sys.stdout.flush()
                     if os.path.isfile('microbenchmark'):
                         os.system('rm microbenchmark')
@@ -47,7 +51,11 @@ if __name__ == "__main__":
                     print('\ncompile : %s\n' % code_file)
                     sys.stdout.flush()
                     os.system('g++ %s -O3 -pthread -Iindigo_include -o minibenchmark' % file_path)
-                    os.system('./minibenchmark %s %s %s' % (input_path, verify, thread_count))
+                    if 'sssp' in code_path or 'bfs' in code_path:
+                        os.system('./minibenchmark %s %s %s %s' % (input_path, source, verify, thread_count))
+                    else:
+                        os.system('./minibenchmark %s %s %s' % (input_path, verify, thread_count))
+                    # os.system('./minibenchmark %s %s %s' % (input_path, verify, thread_count))
                     sys.stdout.flush()
                     if os.path.isfile('microbenchmark'):
                         os.system('rm microbenchmark')
@@ -66,7 +74,11 @@ if __name__ == "__main__":
                     print('\ncompile : %s\n' % code_file)
                     sys.stdout.flush()
                     os.system('g++ %s -O3 -fopenmp -Iindigo_include -o minibenchmark' % file_path)
-                    os.system('./minibenchmark %s %s' % (input_path, verify))
+                    if 'sssp' in code_path or 'bfs' in code_path:
+                        os.system('./minibenchmark %s %s' % (input_path, source, verify))
+                    else:
+                        os.system('./minibenchmark %s %s' % (input_path, verify))
+                    # os.system('./minibenchmark %s %s' % (input_path, verify))
                     sys.stdout.flush()
                     if os.path.isfile('microbenchmark'):
                         os.system('rm microbenchmark')

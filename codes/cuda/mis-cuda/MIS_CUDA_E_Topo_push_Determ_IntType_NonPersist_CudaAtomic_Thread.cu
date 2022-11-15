@@ -103,7 +103,7 @@ static double GPUmis_edge(const ECLgraph& g, const int* const sp, data_type* con
   flag_t* d_status_new;
   if (cudaSuccess != cudaMalloc((void **)&d_status_new, g.nodes * sizeof(flag_t))) fprintf(stderr, "ERROR: could not allocate d_status_new\n");
 
-  const int blocks = (g.edges + ThreadsPerBlock - 1) / ThreadsPerBlock;
+  int blocks = (g.edges + ThreadsPerBlock - 1) / ThreadsPerBlock;
 
   init<<<(g.edges + ThreadsPerBlock - 1) / ThreadsPerBlock, ThreadsPerBlock>>>(d_priority, d_status, d_status_new, d_lost, g.nodes);
 
@@ -128,7 +128,7 @@ static double GPUmis_edge(const ECLgraph& g, const int* const sp, data_type* con
     if (cudaSuccess != cudaMemcpy(d_status, d_status_new, g.nodes * sizeof(flag_t), cudaMemcpyDeviceToDevice)) fprintf(stderr, "ERROR: copying of d_status_new to d_status on device failed\n");
   } while (goagain);
 
-  const int blocks = (g.nodes + ThreadsPerBlock - 1) / ThreadsPerBlock;
+  int blocks = (g.nodes + ThreadsPerBlock - 1) / ThreadsPerBlock;
   // include all remaining nodes that have no edges
   mis_last_pass<<<blocks, ThreadsPerBlock>>>(d_status, g.nodes);
 

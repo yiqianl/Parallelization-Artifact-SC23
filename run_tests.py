@@ -75,7 +75,7 @@ if __name__ == "__main__":
                     sys.stdout.flush()
                     os.system('g++ %s -O3 -fopenmp -Iindigo_include -o minibenchmark' % file_path)
                     if 'sssp' in code_path or 'bfs' in code_path:
-                        os.system('./minibenchmark %s %s' % (input_path, source, verify))
+                        os.system('./minibenchmark %s %s %s' % (input_path, source, verify))
                     else:
                         os.system('./minibenchmark %s %s' % (input_path, verify))
                     # os.system('./minibenchmark %s %s' % (input_path, verify))

@@ -7,7 +7,7 @@
 template <typename T>
 static inline T atomicRead(T* const addr)
 {
-  data_type ret;
+  T ret;
   #pragma omp atomic read
   ret = *addr;
   return ret;

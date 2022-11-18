@@ -10,7 +10,7 @@ using pair = std::pair<int, int>;
 template <typename T>
 static inline T atomicRead(T* const addr)
 {
-  data_type ret;
+  T ret;
   #pragma omp atomic read
   ret = *addr;
   return ret;
@@ -23,9 +23,10 @@ static inline void atomicWrite(T* const addr, const T val)
   *addr = val;
 }
 
-static inline data_type critical_min(data_type* addr, data_type val)
+template <typename T>
+static inline T critical_min(T* addr, T val)
 {
-  data_type oldv;
+  T oldv;
   #pragma omp critical
   {
     oldv = *addr;
@@ -36,10 +37,10 @@ static inline data_type critical_min(data_type* addr, data_type val)
   return oldv;
 }
 
-
-static inline data_type critical_max(data_type* addr, data_type val)
+template <typename T>
+static inline T critical_max(T* addr, T val)
 {
-  data_type oldv;
+  T oldv;
   #pragma omp critical
   {
     oldv = *addr;
@@ -50,9 +51,10 @@ static inline data_type critical_max(data_type* addr, data_type val)
   return oldv;
 }
 
-static inline data_type fetch_and_add(data_type* addr)
+template <typename T>
+static inline T fetch_and_add(T* addr)
 {
-  data_type old;
+  T old;
   #pragma omp atomic capture
   {
     old = *addr;

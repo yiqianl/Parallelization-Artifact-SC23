@@ -7,6 +7,62 @@
 const data_type maxval = std::numeric_limits<data_type>::max();
 using pair = std::pair<int, int>;
 
+template <typename T>
+static inline T atomicRead(T* const addr)
+{
+  T ret;
+  #pragma omp atomic read
+  ret = *addr;
+  return ret;
+}
+
+template <typename T>
+static inline void atomicWrite(T* const addr, const T val)
+{
+  #pragma omp atomic write
+  *addr = val;
+}
+
+template <typename T>
+static inline T critical_min(T* addr, T val)
+{
+  T oldv;
+  #pragma omp critical
+  {
+    oldv = *addr;
+    if (oldv > val) {
+      *addr = val;
+    }
+  }
+  return oldv;
+}
+
+template <typename T>
+static inline T critical_max(T* addr, T val)
+{
+  T oldv;
+  #pragma omp critical
+  {
+    oldv = *addr;
+    if (oldv < val) {
+      *addr = val;
+    }
+  }
+  return oldv;
+}
+
+template <typename T>
+static inline T fetch_and_add(T* addr)
+{
+  T old;
+  #pragma omp atomic capture
+  {
+    old = *addr;
+    (*addr)++;
+  }
+  return old;
+}
+
 static double CPUbfs_vertex(const int src, const ECLgraph& g, data_type* dist);
 
 static void CPUserialDijkstra(const int src, const ECLgraph& g, data_type* const dist)

@@ -1,59 +1,6 @@
 typedef unsigned long long data_type;
 #include "indigo_bfs_vertex_omp.h"
 
-template <typename T>
-static inline T atomicRead(T* const addr)
-{
-  data_type ret;
-  #pragma omp atomic read
-  ret = *addr;
-  return ret;
-}
-
-template <typename T>
-static inline void atomicWrite(T* const addr, const T val)
-{
-  #pragma omp atomic write
-  *addr = val;
-}
-
-static inline data_type criticalMin(data_type* addr, data_type val)
-{
-  data_type oldv;
-  #pragma omp critical
-  {
-    oldv = *addr;
-    if (oldv > val) {
-      *addr = val;
-    }
-  }
-  return oldv;
-}
-
-static inline data_type criticalMax(data_type* addr, data_type val)
-{
-  data_type oldv;
-  #pragma omp critical
-  {
-    oldv = *addr;
-    if (oldv < val) {
-      *addr = val;
-    }
-  }
-  return oldv;
-}
-
-static inline data_type fetch_and_add(data_type* addr)
-{
-  data_type old;
-  #pragma omp atomic capture
-  {
-    old = *addr;
-    (*addr)++;
-  }
-  return old;
-}
-
 static void init(const int src, data_type* const dist, data_type* const dist_n, const int size, const ECLgraph g, int* const wl1, int &wlsize, int* const time)
 {
   // initialize dist array

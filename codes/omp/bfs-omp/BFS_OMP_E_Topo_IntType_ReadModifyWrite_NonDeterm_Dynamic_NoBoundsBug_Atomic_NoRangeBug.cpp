@@ -1,35 +1,6 @@
 typedef int data_type;
 #include "indigo_bfs_edge_omp.h"
 
-template <typename T>
-static inline T atomicRead(T* const addr)
-{
-  data_type ret;
-  #pragma omp atomic read
-  ret = *addr;
-  return ret;
-}
-
-template <typename T>
-static inline void atomicWrite(T* const addr, const T val)
-{
-  #pragma omp atomic write
-  *addr = val;
-}
-
-static inline data_type critical_min(data_type* addr, data_type val)
-{
-  data_type oldv;
-  #pragma omp critical
-  {
-    oldv = *addr;
-    if (oldv > val) {
-      *addr = val;
-    }
-  }
-  return oldv;
-}
-
 static void init(const int src, data_type* const dist, const int size)
 {
   // initialize arrays

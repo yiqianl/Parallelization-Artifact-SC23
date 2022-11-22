@@ -30,6 +30,8 @@ if __name__ == "__main__":
                     os.system('nvcc %s -O3 -arch=sm_70 -Iindigo_include -o minibenchmark' % file_path)
                     if 'sssp' in code_path or 'bfs' in code_path:
                         os.system('./minibenchmark %s %s %s' % (input_path, source, verify))
+                    elif 'pr' in code_path:
+                        os.system('./minibenchmark %s' % (input_path))
                     else:
                         os.system('./minibenchmark %s %s' % (input_path, verify))
                     sys.stdout.flush()
@@ -53,6 +55,8 @@ if __name__ == "__main__":
                     os.system('g++ %s -O3 -pthread -Iindigo_include -o minibenchmark' % file_path)
                     if 'sssp' in code_path or 'bfs' in code_path:
                         os.system('./minibenchmark %s %s %s %s' % (input_path, source, verify, thread_count))
+                    elif 'pr' in code_path:
+                        os.system('./minibenchmark %s %s' % (input_path, thread_count))
                     else:
                         os.system('./minibenchmark %s %s %s' % (input_path, verify, thread_count))
                     # os.system('./minibenchmark %s %s %s' % (input_path, verify, thread_count))
@@ -76,6 +80,8 @@ if __name__ == "__main__":
                     os.system('g++ %s -O3 -fopenmp -Iindigo_include -o minibenchmark' % file_path)
                     if 'sssp' in code_path or 'bfs' in code_path:
                         os.system('./minibenchmark %s %s %s' % (input_path, source, verify))
+                    elif 'pr' in code_path:
+                        os.system('./minibenchmark %s' % (input_path))
                     else:
                         os.system('./minibenchmark %s %s' % (input_path, verify))
                     # os.system('./minibenchmark %s %s' % (input_path, verify))

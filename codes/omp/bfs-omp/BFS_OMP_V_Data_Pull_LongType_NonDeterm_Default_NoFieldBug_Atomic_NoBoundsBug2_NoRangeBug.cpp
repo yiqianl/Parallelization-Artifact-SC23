@@ -45,7 +45,7 @@ static void bfs_vertex_data(const ECLgraph g, data_type* const dist, const int* 
       atomicWrite(&dist[v], d);
       for (int j = beg; j < end; j++) {
         const int n = g.nlist[j];
-        if (criticalMax(&time[n], iter) != iter) {
+        if (critical_max(&time[n], iter) != iter) {
           wl2[fetch_and_add(&wl2size)] = n;
         }
       }

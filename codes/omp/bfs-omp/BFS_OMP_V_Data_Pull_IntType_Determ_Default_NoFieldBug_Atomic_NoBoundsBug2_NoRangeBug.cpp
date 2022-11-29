@@ -40,14 +40,14 @@ static void bfs_vertex_data(const ECLgraph g, data_type* const dist, data_type* 
           updated = true;
         }
       }
-      criticalMin(&dist_n[src], s);
+      critical_min(&dist_n[src], s);
     }
 
     if (updated) {
       dist_n[v] = d;
       for (int j = beg; j < end; j++) {
         const int n = g.nlist[j];
-        if (criticalMax(&time[n], iter) != iter) {
+        if (critical_max(&time[n], iter) != iter) {
           wl2[fetch_and_add(&wl2size)] = n;
         }
       }

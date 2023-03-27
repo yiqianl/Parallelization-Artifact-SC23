@@ -3,11 +3,11 @@
 # This script is used to run the test cases and write the results to csv files
 
 # run the test cases
-python run_codes.py 2d-2e20.sym.egr
-python run_codes.py coPapersDBLP.egr
-python run_codes.py rmat22.sym.egr
-python run_codes.py soc-LiveJournal1.egr
-python run_codes.py USA-road-d.NY.egr
+python run_codes.py 0 2d-2e20.sym.egr 16
+python run_codes.py 0 coPapersDBLP.egr 16
+python run_codes.py 0 rmat22.sym.egr 16
+python run_codes.py 0 soc-LiveJournal1.egr 16
+python run_codes.py 0 USA-road-d.NY.egr 16
 
 # convert the output to csv files
 ## cuda sssp

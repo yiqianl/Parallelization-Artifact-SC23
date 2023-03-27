@@ -88,6 +88,7 @@ if __name__ == "__main__":
                     print('\ncompile : %s\n' % code_file)
                     sys.stdout.flush()
                     os.system('g++ %s -O3 -fopenmp -Iindigo_include -o minibenchmark' % file_path)
+                    os.system('export OMP_NUM_THREADS=%s' % thread_count)
                     if 'sssp' in code_path or 'bfs' in code_path:
                         os.system('./minibenchmark %s %s %s > %s' % (input_path, source, verify, out_name))
                     elif 'pr' in code_path:

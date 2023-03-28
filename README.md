@@ -1,4 +1,4 @@
-# Indigo2-suite
+# Parallelization Suite for SC'23 Artifact
 
 The repo includes the codes, inputs, and scripts to run the experiments. 
 

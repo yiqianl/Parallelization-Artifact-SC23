@@ -13,5 +13,6 @@ Read the throughputs and convert them to csv files
 > sh generate_csv.sh
 
 ## Step 3
-Update the csv file paths in the "analysis/analysis_*.ipynb"
-Run the notebook to calculate metrics and generate figures for performance analysis
+Update the csv file paths in the "analysis/analysis_*.ipynb".
+
+Run the notebook to calculate metrics and generate figures for performance analysis.

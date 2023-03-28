@@ -1,2 +1,0 @@
-2d-2e20.sym.egr filter=lfs diff=lfs merge=lfs -text
-*.egr filter=lfs diff=lfs merge=lfs -text

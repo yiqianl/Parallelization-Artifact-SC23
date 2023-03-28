@@ -8,4 +8,4 @@ wget -P inputs https://userweb.cs.txstate.edu/~burtscher/research/ECLgraph/soc-L
 wget -P inputs https://userweb.cs.txstate.edu/~burtscher/research/ECLgraph/USA-road-d.NY.egr
 
 # run the test cases
-python run_codes.py 0 2d-2e20.sym.egr 16
+python run_codes.py 0 16

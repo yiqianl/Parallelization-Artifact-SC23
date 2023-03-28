@@ -31,7 +31,7 @@ if __name__ == "__main__":
                         if code_file.endswith('.cu'):
                             file_path = os.path.join(code_path, code_file)
                             sys.stdout.flush()
-                            print('\ncompile : %s\n' % code_file, file=f)
+                            f.write('\ncompile : %s\n' % code_file)
                             sys.stdout.flush()
                             os.system('nvcc %s -O3 -arch=sm_70 -Iindigo_include -o minibenchmark' % file_path)
                             if 'sssp' in code_path or 'bfs' in code_path:
@@ -49,7 +49,6 @@ if __name__ == "__main__":
                             sys.exit('No cuda codes in the directory.')
 
         # run cpp programs
-    # for code_path in cpp_path:
         for i in range(len(cpp_path)):
             code_path = cpp_path[i]
             out_name = algorithms[i] + '_' + graph + '_cpp.out'
@@ -61,7 +60,7 @@ if __name__ == "__main__":
                         if code_file.endswith('.cpp'):
                             file_path = os.path.join(code_path, code_file)
                             sys.stdout.flush()
-                            print('\ncompile : %s\n' % code_file)
+                            f.write('\ncompile : %s\n' % code_file)
                             sys.stdout.flush()
                             os.system('g++ %s -O3 -pthread -Iindigo_include -o minibenchmark' % file_path)
                             if 'sssp' in code_path or 'bfs' in code_path:
@@ -70,7 +69,6 @@ if __name__ == "__main__":
                                 os.system('./minibenchmark %s %s >> %s' % (input_path, thread_count, out_name))
                             else:
                                 os.system('./minibenchmark %s %s %s >> %s' % (input_path, verify, thread_count, out_name))
-                    # os.system('./minibenchmark %s %s %s' % (input_path, verify, thread_count))
                             sys.stdout.flush()
                             if os.path.isfile('minibenchmark'):
                                 os.system('rm minibenchmark')
@@ -90,7 +88,7 @@ if __name__ == "__main__":
                         if code_file.endswith('.cpp'):
                             file_path = os.path.join(code_path, code_file)
                             sys.stdout.flush()
-                            print('\ncompile : %s\n' % code_file)
+                            f.write('\ncompile : %s\n' % code_file)
                             sys.stdout.flush()
                             os.system('g++ %s -O3 -fopenmp -Iindigo_include -o minibenchmark' % file_path)
                             os.system('export OMP_NUM_THREADS=%s' % thread_count)
@@ -100,7 +98,6 @@ if __name__ == "__main__":
                                 os.system('./minibenchmark %s >> %s' % (input_path, out_name))
                             else:
                                 os.system('./minibenchmark %s %s >> %s' % (input_path, verify, out_name))
-                    # os.system('./minibenchmark %s %s' % (input_path, verify))
                             sys.stdout.flush()
                             if os.path.isfile('minibenchmark'):
                                 os.system('rm minibenchmark')

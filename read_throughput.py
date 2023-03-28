@@ -39,14 +39,16 @@ with file as csvfile:
             # rows[idx].append(str_list[-1])
             # print(str_list[-1])
             # print(str_list[-1])
-            one_row[0] = prefix + str_list[-1]
+            one_row[0] = (prefix + str_list[-1]).replace('\n', '')
+            rows.append(one_row)
             # print(one_row)
         if 'Throughput' in l:
             str_list = l.split(' ')
             # print(str_list[-2])
-            one_row[1] = str_list[-2]
+            # one_row[1] = str_list[-2]
             # print(one_row)
-            csvwriter.writerow(one_row)
-            counter += 1
+            rows[idx][1] = (str_list[-2])
+            csvwriter.writerow(rows[idx])
+            idx += 1
 
-print(counter)
+print(idx)

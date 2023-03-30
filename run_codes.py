@@ -25,7 +25,7 @@ if __name__ == "__main__":
             code_path = cuda_path[i]
             out_name = algorithms[i] + '_' + graph + '_cuda.out'
             walk_code = os.walk(code_path)
-            with open(out_name, 'w') as f:
+            with open(out_name, 'a') as f:
                 for root, dircs, code_files in walk_code:
                     for code_file in code_files:
                         if code_file.endswith('.cu'):
@@ -53,7 +53,7 @@ if __name__ == "__main__":
             code_path = cpp_path[i]
             out_name = algorithms[i] + '_' + graph + '_cpp.out'
             walk_code = os.walk(code_path)
-            with open(out_name, 'w') as f:
+            with open(out_name, 'a') as f:
 
                 for root, dircs, code_files in walk_code:
                     for code_file in code_files:
@@ -82,7 +82,7 @@ if __name__ == "__main__":
             code_path = omp_path[i]
             out_name = algorithms[i] + '_' + graph + '_omp.out'
             walk_code = os.walk(code_path)
-            with open(out_name, 'w') as f:
+            with open(out_name, 'a') as f:
                 for root, dircs, code_files in walk_code:
                     for code_file in code_files:
                         if code_file.endswith('.cpp'):

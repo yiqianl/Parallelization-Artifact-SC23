@@ -8,4 +8,4 @@ wget -N -P inputs https://userweb.cs.txstate.edu/~burtscher/research/ECLgraph/so
 wget -N -P inputs https://userweb.cs.txstate.edu/~burtscher/research/ECLgraph/USA-road-d.NY.egr
 
 # run the test cases
-python scripts/run_cpp_codes.py 0 16
+python scripts/run_codes.py 0 16

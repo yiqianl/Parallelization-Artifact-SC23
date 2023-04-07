@@ -7,7 +7,8 @@ args = sys.argv
 if (len(args) <= 4):
     sys.exit('USAGE: prefix input_file out_file algo_name \n')
 
-in_file = open(args[2], 'r')
+input_file_path = "../" + args[2]
+in_file = open(input_file_path, 'r')
 in_lines = in_file.readlines()
 
 prefix = args[1]
@@ -36,17 +37,10 @@ with file as csvfile:
     for l in in_lines:
         if 'compile' in l:
             str_list = l.split(' ')
-            # rows[idx].append(str_list[-1])
-            # print(str_list[-1])
-            # print(str_list[-1])
             one_row[0] = (prefix + str_list[-1]).replace('\n', '')
             rows.append(one_row)
-            # print(one_row)
         if 'Throughput' in l:
             str_list = l.split(' ')
-            # print(str_list[-2])
-            # one_row[1] = str_list[-2]
-            # print(one_row)
             rows[idx][1] = (str_list[-2])
             csvwriter.writerow(rows[idx])
             idx += 1

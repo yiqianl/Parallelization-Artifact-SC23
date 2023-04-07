@@ -1,43 +1,44 @@
-# convert the output to csv files
+#!bin/bash/
 
+# convert the output to csv files
 ## cpp sssp
-python read_throughput.py 2d sssp_2d-2e20.sym.egr_cpp.out sssp_cpp.csv sssp
-python read_throughput.py co sssp_coPapersDBLP.egr_cpp.out sssp_cpp.csv sssp
-python read_throughput.py rmat sssp_rmat22.sym.egr_cpp.out sssp_cpp.csv sssp
-python read_throughput.py soc sssp_soc-LiveJournal1.egr_cpp.out sssp_cpp.csv sssp
-python read_throughput.py ny sssp_USA-road-d.NY.egr_cpp.out sssp_cpp.csv sssp
+python scripts/read_throughput.py.py 2d throughputs/cpp/sssp_2d-2e20.sym.egr_cpp.out sssp_cpp.csv sssp
+python scripts/read_throughput.py.py co throughputs/cpp/sssp_coPapersDBLP.egr_cpp.out sssp_cpp.csv sssp
+python scripts/read_throughput.py.py rmat throughputs/cpp/sssp_rmat22.sym.egr_cpp.out sssp_cpp.csv sssp
+python scripts/read_throughput.py.py soc throughputs/cpp/sssp_soc-LiveJournal1.egr_cpp.out sssp_cpp.csv sssp
+python scripts/read_throughput.py.py ny throughputs/cpp/sssp_USA-road-d.NY.egr_cpp.out sssp_cpp.csv sssp
 
 ## cpp bfs
-python read_throughput.py 2d bfs_2d-2e20.sym.egr_cpp.out bfs_cpp.csv bfs
-python read_throughput.py co bfs_coPapersDBLP.egr_cpp.out bfs_cpp.csv bfs
-python read_throughput.py rmat bfs_rmat22.sym.egr_cpp.out bfs_cpp.csv bfs
-python read_throughput.py soc bfs_soc-LiveJournal1.egr_cpp.out bfs_cpp.csv bfs
-python read_throughput.py ny bfs_USA-road-d.NY.egr_cpp.out bfs_cpp.csv bfs
+python scripts/read_throughput.py.py 2d throughputs/cpp/bfs_2d-2e20.sym.egr_cpp.out bfs_cpp.csv bfs
+python scripts/read_throughput.py.py co throughputs/cpp/bfs_coPapersDBLP.egr_cpp.out bfs_cpp.csv bfs
+python scripts/read_throughput.py.py rmat throughputs/cpp/bfs_rmat22.sym.egr_cpp.out bfs_cpp.csv bfs
+python scripts/read_throughput.py.py soc throughputs/cpp/bfs_soc-LiveJournal1.egr_cpp.out bfs_cpp.csv bfs
+python scripts/read_throughput.py.py ny throughputs/cpp/bfs_USA-road-d.NY.egr_cpp.out bfs_cpp.csv bfs
 
 ## cpp cc
-python read_throughput.py 2d cc_2d-2e20.sym.egr_cpp.out cc_cpp.csv cc
-python read_throughput.py co cc_coPapersDBLP.egr_cpp.out cc_cpp.csv cc
-python read_throughput.py rmat cc_rmat22.sym.egr_cpp.out cc_cpp.csv cc
-python read_throughput.py soc cc_soc-LiveJournal1.egr_cpp.out cc_cpp.csv cc
-python read_throughput.py ny cc_USA-road-d.NY.egr_cpp.out cc_cpp.csv cc
+python scripts/read_throughput.py.py 2d throughputs/cpp/cc_2d-2e20.sym.egr_cpp.out cc_cpp.csv cc
+python scripts/read_throughput.py.py co throughputs/cpp/cc_coPapersDBLP.egr_cpp.out cc_cpp.csv cc
+python scripts/read_throughput.py.py rmat throughputs/cpp/cc_rmat22.sym.egr_cpp.out cc_cpp.csv cc
+python scripts/read_throughput.py.py soc throughputs/cpp/cc_soc-LiveJournal1.egr_cpp.out cc_cpp.csv cc
+python scripts/read_throughput.py.py ny throughputs/cpp/cc_USA-road-d.NY.egr_cpp.out cc_cpp.csv cc
 
 ## cpp mis
-python read_throughput.py 2d mis_2d-2e20.sym.egr_cpp.out mis_cpp.csv mis
-python read_throughput.py co mis_coPapersDBLP.egr_cpp.out mis_cpp.csv mis
-python read_throughput.py rmat mis_rmat22.sym.egr_cpp.out mis_cpp.csv mis
-python read_throughput.py soc mis_soc-LiveJournal1.egr_cpp.out mis_cpp.csv mis
-python read_throughput.py ny mis_USA-road-d.NY.egr_cpp.out mis_cpp.csv mis
+python scripts/read_throughput.py.py 2d throughputs/cpp/mis_2d-2e20.sym.egr_cpp.out mis_cpp.csv mis
+python scripts/read_throughput.py.py co throughputs/cpp/mis_coPapersDBLP.egr_cpp.out mis_cpp.csv mis
+python scripts/read_throughput.py.py rmat throughputs/cpp/mis_rmat22.sym.egr_cpp.out mis_cpp.csv mis
+python scripts/read_throughput.py.py soc throughputs/cpp/mis_soc-LiveJournal1.egr_cpp.out mis_cpp.csv mis
+python scripts/read_throughput.py.py ny throughputs/cpp/mis_USA-road-d.NY.egr_cpp.out mis_cpp.csv mis
 
 ## cpp pr
-python read_throughput.py 2d pr_2d-2e20.sym.egr_cpp.out pr_cpp.csv pr
-python read_throughput.py co pr_coPapersDBLP.egr_cpp.out pr_cpp.csv pr
-python read_throughput.py rmat pr_rmat22.sym.egr_cpp.out pr_cpp.csv pr
-python read_throughput.py soc pr_soc-LiveJournal1.egr_cpp.out pr_cpp.csv pr
-python read_throughput.py ny pr_USA-road-d.NY.egr_cpp.out pr_cpp.csv pr
+python scripts/read_throughput.py.py 2d throughputs/cpp/pr_2d-2e20.sym.egr_cpp.out pr_cpp.csv pr
+python scripts/read_throughput.py.py co throughputs/cpp/pr_coPapersDBLP.egr_cpp.out pr_cpp.csv pr
+python scripts/read_throughput.py.py rmat throughputs/cpp/pr_rmat22.sym.egr_cpp.out pr_cpp.csv pr
+python scripts/read_throughput.py.py soc throughputs/cpp/pr_soc-LiveJournal1.egr_cpp.out pr_cpp.csv pr
+python scripts/read_throughput.py.py ny throughputs/cpp/pr_USA-road-d.NY.egr_cpp.out pr_cpp.csv pr
 
 ## cpp tc
-python read_throughput.py 2d tc_2d-2e20.sym.egr_cpp.out tc_cpp.csv tc
-python read_throughput.py co tc_coPapersDBLP.egr_cpp.out tc_cpp.csv tc
-python read_throughput.py rmat tc_rmat22.sym.egr_cpp.out tc_cpp.csv tc
-python read_throughput.py soc tc_soc-LiveJournal1.egr_cpp.out tc_cpp.csv tc
-python read_throughput.py ny tc_USA-road-d.NY.egr_cpp.out tc_cpp.csv tc
+python scripts/read_throughput.py.py 2d throughputs/cpp/tc_2d-2e20.sym.egr_cpp.out tc_cpp.csv tc
+python scripts/read_throughput.py.py co throughputs/cpp/tc_coPapersDBLP.egr_cpp.out tc_cpp.csv tc
+python scripts/read_throughput.py.py rmat throughputs/cpp/tc_rmat22.sym.egr_cpp.out tc_cpp.csv tc
+python scripts/read_throughput.py.py soc throughputs/cpp/tc_soc-LiveJournal1.egr_cpp.out tc_cpp.csv tc
+python scripts/read_throughput.py.py ny throughputs/cpp/tc_USA-road-d.NY.egr_cpp.out tc_cpp.csv tc

@@ -39,8 +39,8 @@ with file as csvfile:
             # str_list = l.split(' ')
             # one_row[0] = (prefix + str_list[-1]).replace('\n', '')
             # rows.append(one_row)
-            if idx1 <= len(rows):
-                rows.append(one_row)
+            if idx1 == len(rows):
+                rows.append(['', ''])
             rows[idx1][0] = (prefix + l.split(' ')[-1]).replace('\n', '')
             idx1 += 1
         if 'Throughput' in l:
@@ -48,8 +48,8 @@ with file as csvfile:
             # rows[idx][1] = (str_list[-2])
             # csvwriter.writerow(rows[idx])
             # idx += 1
-            if idx2 <= len(rows):
-                rows.append(one_row)
+            if idx2 == len(rows):
+                rows.append(['', ''])
             rows[idx2][1] = (l.split(' ')[-2])
             idx2 += 1
 

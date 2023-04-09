@@ -47,7 +47,9 @@ if __name__ == "__main__":
                 for code_file in code_files:
                     if code_file.endswith('.cpp'):
                         counter += 1
+                        sys.stdout.flush()
                         print("running %s\n%d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cpp, graph_names.index(graph) + 1, len(graph_names)))
+                        sys.stdout.flush()
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
                             sys.stdout.flush()

@@ -3,17 +3,21 @@
 import os
 import sys
 
-cuda_path = ['../codes/cuda/sssp-cuda/', '../codes/cuda/bfs-cuda/', '../codes/cuda/cc-cuda/', '../codes/cuda/mis-cuda/', '../codes/cuda/pr-cuda/', '../codes/cuda/tc-cuda/']
-omp_path = ['../codes/omp/sssp-omp/', '../codes/omp/bfs-omp/', '../codes/omp/cc-omp/', '../codes/omp/mis-omp/', '../codes/omp/pr-omp/', '../codes/omp/tc-omp/']
-cpp_path = ['../codes/cpp/sssp-cpp/', '../codes/cpp/bfs-cpp/', '../codes/cpp/cc-cpp/', '../codes/cpp/mis-cpp/', '../codes/cpp/pr-cpp/', '../codes/cpp/tc-cpp/']
+cuda_path = ['codes/cuda/sssp-cuda/', 'codes/cuda/bfs-cuda/', 'codes/cuda/cc-cuda/', 'codes/cuda/mis-cuda/', 'codes/cuda/pr-cuda/', 'codes/cuda/tc-cuda/']
+omp_path = ['codes/omp/sssp-omp/', 'codes/omp/bfs-omp/', 'codes/omp/cc-omp/', 'codes/omp/mis-omp/', 'codes/omp/pr-omp/', 'codes/omp/tc-omp/']
+cpp_path = ['codes/cpp/sssp-cpp/', 'codes/cpp/bfs-cpp/', 'codes/cpp/cc-cpp/', 'codes/cpp/mis-cpp/', 'codes/cpp/pr-cpp/', 'codes/cpp/tc-cpp/']
 source = '0'
 algorithms = ['sssp', 'bfs', 'cc', 'mis', 'pr', 'tc']
-inputs_folder = '../inputs/'
-cuda_out = '../throughputs/cuda'
-cpp_out = '../throughputs/cpp'
-omp_out = '../throughputs/omp'
+inputs_folder = 'inputs/'
+out_dir = 'throughputs/'
+cuda_out = 'throughputs/cuda/'
+cpp_out = 'throughputs/cpp/'
+omp_out = 'throughputs/omp/'
 graph_names = ['2d-2e20.sym.egr', 'coPapersDBLP.egr', 'rmat22.sym.egr', 'soc-LiveJournal1.egr', 'USA-road-d.NY.egr']
 counter = 0
+total_num_cpp = 176
+total_num_omp = 176
+total_num_cuda = 754
 
 if __name__ == "__main__":
     # read command line
@@ -22,12 +26,22 @@ if __name__ == "__main__":
         sys.exit('USAGE: verify thread_count(optional)\n')
     verify = args_val[1]
     thread_count = args_val[2]
+
+    # create output directory
+    if os.path.exists(out_dir):
+        os.system('rm -rf %s' % (out_dir))
+    os.mkdir(out_dir)
     
     for graph in graph_names:
         input_path = inputs_folder + graph
         for i in range(len(cuda_path)):
             code_path = cuda_path[i]
             walk_code = os.walk(code_path)
+
+            # create cuda out directory
+            if os.path.exists(cuda_out):
+                os.rmdir(cuda_out)
+            os.mkdir(cuda_out)
             out_name = cuda_out + algorithms[i] + '_' + graph + '_cuda.out'
             
             if os.path.isfile(out_name):
@@ -38,7 +52,7 @@ if __name__ == "__main__":
                     if code_file.endswith('.cu'):
                         counter += 1
                         sys.stdout.flush()
-                        print("running %s\n %d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cuda, graph_names.index(graph) + 1, len(graph_names)))
+                        print("running %s\n%d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cuda, graph_names.index(graph) + 1, len(graph_names)))
                         sys.stdout.flush()
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
@@ -63,6 +77,11 @@ if __name__ == "__main__":
         for i in range(len(cpp_path)):
             code_path = cpp_path[i]
             walk_code = os.walk(code_path)
+
+            # create cpp out directory
+            if os.path.exists(cpp_out):
+                os.rmdir(cpp_out)
+            os.mkdir(cpp_out)
             out_name = cpp_out + algorithms[i] + '_' + graph + '_cpp.out'
             
             if os.path.isfile(out_name):
@@ -73,7 +92,7 @@ if __name__ == "__main__":
                     if code_file.endswith('.cpp'):
                         counter += 1
                         sys.stdout.flush()
-                        print("running %s\n %d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cpp, graph_names.index(graph) + 1, len(graph_names)))
+                        print("running %s\n%d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cpp, graph_names.index(graph) + 1, len(graph_names)))
                         sys.stdout.flush()
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
@@ -98,6 +117,11 @@ if __name__ == "__main__":
         for i in range(len(omp_path)):
             code_path = omp_path[i]
             walk_code = os.walk(code_path)
+
+            # create omp out directory
+            if os.path.exists(omp_out):
+                os.rmdir(omp_out)
+            os.mkdir(omp_out)
             out_name = omp_out + algorithms[i] + '_' + graph + '_omp.out'
             
             if os.path.isfile(out_name):
@@ -108,7 +132,7 @@ if __name__ == "__main__":
                     if code_file.endswith('.cpp'):
                         counter += 1
                         sys.stdout.flush()
-                        print("running %s\n %d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_omp, graph_names.index(graph) + 1, len(graph_names)))
+                        print("running %s\n%d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_omp, graph_names.index(graph) + 1, len(graph_names)))
                         sys.stdout.flush()
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)

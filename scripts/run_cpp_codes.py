@@ -6,9 +6,9 @@ import sys
 cpp_path = ['codes/cpp/sssp-cpp/', 'codes/cpp/bfs-cpp/', 'codes/cpp/cc-cpp/', 'codes/cpp/mis-cpp/', 'codes/cpp/pr-cpp/', 'codes/cpp/tc-cpp/']
 source = '0'
 algorithms = ['sssp', 'bfs', 'cc', 'mis', 'pr', 'tc']
-inputs_folder = '../inputs/'
+inputs_folder = 'inputs/'
 out_dir = 'throughputs/'
-cpp_out = 'throughputs/cpp'
+cpp_out = 'throughputs/cpp/'
 graph_names = ['2d-2e20.sym.egr', 'coPapersDBLP.egr', 'rmat22.sym.egr', 'soc-LiveJournal1.egr', 'USA-road-d.NY.egr']
 total_num_cpp = 176
 counter = 0
@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # create output directory
     if os.path.exists(out_dir):
-        os.rmdir(out_dir)
+        os.system('rm -rf %s" % out_dir')
     os.mkdir(out_dir)
 
     for graph in graph_names:
@@ -47,7 +47,7 @@ if __name__ == "__main__":
                 for code_file in code_files:
                     if code_file.endswith('.cpp'):
                         counter += 1
-                        print("running %s\n %dout of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cpp, graph_names.index(graph) + 1, len(graph_names)))
+                        print("running %s\n%d out of %d programs, %d out of %d inputs" % (code_file, counter, total_num_cpp, graph_names.index(graph) + 1, len(graph_names)))
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
                             sys.stdout.flush()

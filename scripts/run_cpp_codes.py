@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # create output directory
     if os.path.exists(out_dir):
-        os.system('rm -rf %s" % (out_dir)')
+        os.system('rm -rf %s' % (out_dir))
     os.mkdir(out_dir)
 
     for graph in graph_names:

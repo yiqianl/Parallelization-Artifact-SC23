@@ -25,6 +25,7 @@ if __name__ == "__main__":
     if os.path.exists(out_dir):
         os.system('rm -rf %s' % (out_dir))
     os.mkdir(out_dir)
+    os.mkdir(cpp_out)          
 
     for graph in graph_names:
         input_path = inputs_folder + graph
@@ -34,10 +35,6 @@ if __name__ == "__main__":
             code_path = cpp_path[i] 
             walk_code = os.walk(code_path)
 
-            # create cpp out directory
-            if os.path.exists(cpp_out):
-                os.rmdir(cpp_out)
-            os.mkdir(cpp_out)
             out_name = cpp_out + algorithms[i] + '_' + graph + '_cpp.out'
             
             if os.path.isfile(out_name):
@@ -55,7 +52,7 @@ if __name__ == "__main__":
                             sys.stdout.flush()
                             f.write('\ncompile : %s\n' % code_file)
                             sys.stdout.flush()
-                            os.system('g++ %s -O3 -pthread -Iinclude -o minibenchmark' % file_path)
+                            os.system('g++ %s -O3 -pthread -Iindigo_include -o minibenchmark' % file_path)
                             if 'sssp' in code_path or 'bfs' in code_path:
                                 os.system('./minibenchmark %s %s %s %s >> %s' % (input_path, source, verify, thread_count, out_name))
                             elif 'pr' in code_path:

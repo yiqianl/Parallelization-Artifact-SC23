@@ -4,7 +4,7 @@ typedef int data_type;
 typedef int basic_t;
 static const int ThreadsPerBlock = 512;
 
-#include "indigo_bfs_vertex_cuda.h"
+#include "bfs_vertex_cuda.h"
 
 static __global__ void init(const int src, data_type* const dist, const int size, const ECLgraph g, int* const wl1, int* const wlsize)
 {
@@ -42,6 +42,7 @@ static __global__ void bfs_vertex_data(const ECLgraph g, data_type* const dist, 
     }
   }
 }
+
 static double GPUbfs_vertex(const int src, const ECLgraph& g, basic_t* const dist)
 {
   data_type* d_dist;

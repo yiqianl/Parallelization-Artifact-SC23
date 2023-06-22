@@ -1,6 +1,6 @@
 #include <mutex>
 typedef int basic_t;
-#include "indigo_tc_vertex_cpp.h"
+#include "tc_vertex_cpp.h"
 
 std::mutex mutex;
 

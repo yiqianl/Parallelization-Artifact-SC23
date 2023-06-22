@@ -3,7 +3,7 @@ typedef int basic_t;
 static const int WS = 32;
 static const int ThreadsPerBlock = 512;
 static const int Device = 0;
-#include "indigo_tc_vertex_cuda.h"
+#include "tc_vertex_cuda.h"
 static __global__ void d_triCounting(data_type* g_count, const int nodes, const int* const __restrict__ nindex, const int* const __restrict__ nlist)
 {
   const int idx = (threadIdx.x + blockIdx.x * ThreadsPerBlock) / WS;

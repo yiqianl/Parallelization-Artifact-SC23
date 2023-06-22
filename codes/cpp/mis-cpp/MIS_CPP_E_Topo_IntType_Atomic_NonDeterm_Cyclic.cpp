@@ -1,5 +1,5 @@
 typedef unsigned int data_type;
-#include "indigo_mis_edge_cpp.h"
+#include "mis_edge_cpp.h"
 
 static void init(data_type* const priority, unsigned char* const status, bool* const lost, const int size)
 {

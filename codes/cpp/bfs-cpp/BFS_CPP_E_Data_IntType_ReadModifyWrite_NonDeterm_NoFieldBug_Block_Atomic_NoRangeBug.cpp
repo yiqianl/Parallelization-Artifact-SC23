@@ -1,5 +1,5 @@
 typedef int data_type;
-#include "indigo_bfs_edge_cpp.h"
+#include "bfs_edge_cpp.h"
 
 static void init(const int src, data_type* const dist, const int size, const ECLgraph g, int* const wl1, int &wlsize, int* const time)
 {

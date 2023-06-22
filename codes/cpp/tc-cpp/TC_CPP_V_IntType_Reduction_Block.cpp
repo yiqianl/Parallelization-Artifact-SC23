@@ -1,5 +1,5 @@
 typedef int basic_t;
-#include "indigo_tc_vertex_cpp.h"
+#include "tc_vertex_cpp.h"
 
 static void triCounting(basic_t& g_count, const int nodes, const int* const nindex, const int* const nlist, const int threadID, const int threadCount)
 {

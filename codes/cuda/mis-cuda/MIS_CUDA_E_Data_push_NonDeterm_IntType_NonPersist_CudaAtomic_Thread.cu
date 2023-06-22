@@ -3,7 +3,7 @@ typedef cuda::atomic<int> flag_t;
 typedef int data_type;
 static const int ThreadsPerBlock = 512;
 
-#include "indigo_mis_edge_cuda.h"
+#include "mis_edge_cuda.h"
 
 static __global__ void init(const ECLgraph g, const int* const sp, data_type* const priority, flag_t* const status, flag_t* const lost, int* const wl1, int* const wlsize)
 {

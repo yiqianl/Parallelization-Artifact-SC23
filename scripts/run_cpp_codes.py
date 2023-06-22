@@ -55,7 +55,7 @@ if __name__ == "__main__":
                             sys.stdout.flush()
                             f.write('\ncompile : %s\n' % code_file)
                             sys.stdout.flush()
-                            os.system('g++ %s -O3 -pthread -Iindigo_include -o minibenchmark' % file_path)
+                            os.system('g++ %s -O3 -pthread -Iinclude -o minibenchmark' % file_path)
                             if 'sssp' in code_path or 'bfs' in code_path:
                                 os.system('./minibenchmark %s %s %s %s >> %s' % (input_path, source, verify, thread_count, out_name))
                             elif 'pr' in code_path:

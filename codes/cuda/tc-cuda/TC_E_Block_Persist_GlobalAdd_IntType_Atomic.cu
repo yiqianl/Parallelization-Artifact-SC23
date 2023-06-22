@@ -2,7 +2,7 @@ typedef int data_type;
 typedef int basic_t;
 static const int ThreadsPerBlock = 512;
 static const int Device = 0;
-#include "indigo_tc_edge_cuda.h"
+#include "tc_edge_cuda.h"
 static __global__ void d_triCounting(data_type* g_count, const int edges, const int* const __restrict__ nindex, const int* const __restrict__ nlist, const int* const sp)
 {
   const int idx = blockIdx.x;

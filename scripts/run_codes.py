@@ -57,7 +57,7 @@ if __name__ == "__main__":
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
                             f.write('\ncompile : %s\n' % code_file)
-                            os.system('nvcc %s -O3 -arch=sm_70 -Iindigo_include -o minibenchmark' % file_path)
+                            os.system('nvcc %s -O3 -arch=sm_70 -Iinclude -o minibenchmark' % file_path)
                             if 'sssp' in code_path or 'bfs' in code_path:
                                 os.system('./minibenchmark %s %s %s >> %s' % (input_path, source, verify, out_name))
                             elif 'pr' in code_path:
@@ -97,7 +97,7 @@ if __name__ == "__main__":
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
                             f.write('\ncompile : %s\n' % code_file)
-                            os.system('g++ %s -O3 -pthread -Iindigo_include -o minibenchmark' % file_path)
+                            os.system('g++ %s -O3 -pthread -Iinclude -o minibenchmark' % file_path)
                             if 'sssp' in code_path or 'bfs' in code_path:
                                 os.system('./minibenchmark %s %s %s %s >> %s' % (input_path, source, verify, thread_count, out_name))
                             elif 'pr' in code_path:
@@ -137,7 +137,7 @@ if __name__ == "__main__":
                         with open(out_name, 'a') as f:
                             file_path = os.path.join(code_path, code_file)
                             f.write('\ncompile : %s\n' % code_file)    
-                            os.system('g++ %s -O3 -fopenmp -Iindigo_include -o minibenchmark' % file_path)
+                            os.system('g++ %s -O3 -fopenmp -Iinclude -o minibenchmark' % file_path)
                             os.system('export OMP_NUM_THREADS=%s' % thread_count)
                             if 'sssp' in code_path or 'bfs' in code_path:
                                 os.system('./minibenchmark %s %s %s >> %s' % (input_path, source, verify, out_name))

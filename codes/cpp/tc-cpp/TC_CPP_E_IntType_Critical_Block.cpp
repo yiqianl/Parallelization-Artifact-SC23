@@ -1,6 +1,6 @@
 #include <mutex>
 typedef int basic_t;
-#include "indigo_tc_edge_cpp.h"
+#include "tc_edge_cpp.h"
 
 std::mutex mutex;
 

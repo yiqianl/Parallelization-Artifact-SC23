@@ -4,7 +4,7 @@ typedef int flag_t;
 typedef int data_type;
 typedef int basic_t;
 
-#include "indigo_cc_edge_cuda.h"
+#include "cc_edge_cuda.h"
 
 static const int ThreadsPerBlock = 512;
 

@@ -1,5 +1,5 @@
 typedef unsigned int data_type;
-#include "indigo_mis_vertex_omp.h"
+#include "mis_vertex_omp.h"
 
 static void init(data_type* const priority, unsigned char* const status, unsigned char* const status_n, const int size)
 {

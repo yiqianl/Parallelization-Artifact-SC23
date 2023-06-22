@@ -1,5 +1,5 @@
 typedef int data_type;
-#include "indigo_sssp_edge_cpp.h"
+#include "sssp_edge_cpp.h"
 #include <atomic>
 
 static void init(const int src, data_type* const dist, const int size)

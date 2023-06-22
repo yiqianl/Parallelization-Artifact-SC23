@@ -1,5 +1,5 @@
 typedef float score_type;
-#include "indigo_pr_omp.h"
+#include "pr_omp.h"
 
 void PR_CPU(const ECLgraph g, score_type *scores, int* degree)
 {

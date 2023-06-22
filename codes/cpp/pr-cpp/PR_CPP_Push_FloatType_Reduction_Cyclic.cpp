@@ -1,5 +1,5 @@
 typedef float score_type;
-#include "indigo_pr_cpp.h"
+#include "pr_cpp.h"
 
 static void incomingCalc(const ECLgraph g, score_type* outgoing_contrib, score_type* incoming_total, const int threadID, const int threadCount)
 {

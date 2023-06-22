@@ -1,5 +1,5 @@
 typedef int basic_t;
-#include "indigo_tc_edge_omp.h"
+#include "tc_edge_omp.h"
 
 static void triCounting(basic_t& g_count, const int edges, const int* const nindex, const int* const nlist, const int* const sp)
 {

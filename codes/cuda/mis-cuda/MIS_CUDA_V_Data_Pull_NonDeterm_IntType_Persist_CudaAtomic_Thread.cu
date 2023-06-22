@@ -3,7 +3,7 @@ typedef cuda::atomic<int> flag_t;
 typedef int data_type;
 static const int ThreadsPerBlock = 512;
 
-#include "indigo_mis_vertex_cuda.h"
+#include "mis_vertex_cuda.h"
 
 static __global__ void init(data_type* const priority, flag_t* const status, const int size, int* const wl1, int* const wlsize)
 {

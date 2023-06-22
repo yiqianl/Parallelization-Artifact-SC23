@@ -1,5 +1,5 @@
 typedef float score_type;
-#include "indigo_pr_cuda.h"
+#include "pr_cuda.h"
 
 __global__ void contrib(int nodes, score_type* scores, int* degree, score_type* outgoing_contrib, score_type* incoming_total)
 {

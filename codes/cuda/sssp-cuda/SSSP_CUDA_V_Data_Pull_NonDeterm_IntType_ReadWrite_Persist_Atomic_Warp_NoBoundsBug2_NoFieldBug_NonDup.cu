@@ -5,7 +5,7 @@ typedef int basic_t;
 static const int ThreadsPerBlock = 512;
 static const int WarpSize = 32;
 
-#include "indigo_sssp_vertex_cuda.h"
+#include "sssp_vertex_cuda.h"
 
 static __global__ void init(const int src, data_type* const dist, const int size, const ECLgraph g, int* const wl1, int* const wlsize)
 {

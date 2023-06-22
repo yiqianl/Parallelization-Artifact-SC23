@@ -1,6 +1,6 @@
 typedef float score_type;
 #include <mutex>
-#include "indigo_pr_cpp.h"
+#include "pr_cpp.h"
 
 std::mutex mutex;
 

@@ -1,5 +1,5 @@
 typedef int data_type;
-#include "indigo_bfs_edge_omp.h"
+#include "bfs_edge_omp.h"
 
 static void init(const int src, data_type* const dist, const int size)
 {

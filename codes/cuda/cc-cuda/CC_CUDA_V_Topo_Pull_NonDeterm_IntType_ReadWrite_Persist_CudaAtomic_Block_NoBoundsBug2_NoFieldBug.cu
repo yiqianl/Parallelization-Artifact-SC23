@@ -4,7 +4,7 @@ typedef cuda::atomic<int> flag_t;
 typedef cuda::atomic<int> data_type;
 typedef int basic_t;
 
-#include "indigo_cc_vertex_cuda.h"
+#include "cc_vertex_cuda.h"
 
 static const int ThreadsPerBlock = 512;
 

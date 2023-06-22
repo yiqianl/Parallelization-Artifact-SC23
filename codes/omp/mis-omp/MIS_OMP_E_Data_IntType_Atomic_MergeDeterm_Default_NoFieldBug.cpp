@@ -1,5 +1,5 @@
 typedef unsigned int data_type;
-#include "indigo_mis_edge_omp.h"
+#include "mis_edge_omp.h"
 
 static void init(const ECLgraph& g, const int* const sp, data_type* const priority, unsigned char* const status, unsigned char* const status_n, bool* const lost, int* const wl1, int &wlsize)
 {

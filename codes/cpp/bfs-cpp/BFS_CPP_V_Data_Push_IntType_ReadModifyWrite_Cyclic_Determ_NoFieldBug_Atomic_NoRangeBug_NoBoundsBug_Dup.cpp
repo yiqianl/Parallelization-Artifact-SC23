@@ -1,5 +1,5 @@
 typedef int data_type;
-#include "indigo_bfs_vertex_cpp.h"
+#include "bfs_vertex_cpp.h"
 
 static void init(const int src, data_type* const dist, data_type* const dist_n, const int size, int* const wl1, int* const wlsize)
 {

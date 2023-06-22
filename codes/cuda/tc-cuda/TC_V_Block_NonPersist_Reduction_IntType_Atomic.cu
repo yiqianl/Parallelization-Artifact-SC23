@@ -2,7 +2,7 @@ typedef int data_type;
 typedef int basic_t;
 static const int WS = 32;
 static const int ThreadsPerBlock = 512;
-#include "indigo_tc_vertex_cuda.h"
+#include "tc_vertex_cuda.h"
 static __global__ void d_triCounting(data_type* g_count, const int nodes, const int* const __restrict__ nindex, const int* const __restrict__ nlist)
 {
   __shared__ int s_buffer[WS];

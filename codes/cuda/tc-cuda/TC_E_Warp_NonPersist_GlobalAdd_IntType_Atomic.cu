@@ -2,7 +2,7 @@ typedef int data_type;
 typedef int basic_t;
 static const int WS = 32;
 static const int ThreadsPerBlock = 512;
-#include "indigo_tc_edge_cuda.h"
+#include "tc_edge_cuda.h"
 static __global__ void d_triCounting(data_type* g_count, const int edges, const int* const __restrict__ nindex, const int* const __restrict__ nlist, const int* const sp)
 {
   const int e = (threadIdx.x + blockIdx.x * ThreadsPerBlock) / WS;

@@ -4,7 +4,7 @@ typedef int data_type;
 typedef int basic_t;
 static const int ThreadsPerBlock = 512;
 
-#include "indigo_sssp_edge_cuda.h"
+#include "sssp_edge_cuda.h"
 
 static __global__ void init(const int src, data_type* const dist, data_type* const dist_n, const int size)
 {

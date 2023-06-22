@@ -1,5 +1,5 @@
 typedef int data_type;
-#include "indigo_cc_edge_omp.h"
+#include "cc_edge_omp.h"
 
 static void init(data_type* const label, data_type* const label_n, const int size)
 {

@@ -1,5 +1,5 @@
 typedef int data_type;
-#include "indigo_sssp_vertex_cpp.h"
+#include "sssp_vertex_cpp.h"
 
 static void init(const int src, data_type* const dist, const int size, const ECLgraph g, int* const wl1, int &wlsize)
 {

@@ -28,6 +28,7 @@ if __name__ == "__main__":
     os.mkdir(cpp_out)          
 
     for graph in graph_names:
+        counter = 0
         input_path = inputs_folder + graph
 
         # run cpp programs

@@ -31,17 +31,22 @@ if __name__ == "__main__":
     if os.path.exists(out_dir):
         os.system('rm -rf %s' % (out_dir))
     os.mkdir(out_dir)
+    os.mkdir(cuda_out)
+    os.mkdir(cpp_out)
+    os.mkdir(omp_out)
     
     for graph in graph_names:
         input_path = inputs_folder + graph
+
+        counter = 0
         for i in range(len(cuda_path)):
             code_path = cuda_path[i]
             walk_code = os.walk(code_path)
 
-            # create cuda out directory
-            if os.path.exists(cuda_out):
-                os.rmdir(cuda_out)
-            os.mkdir(cuda_out)
+            # # create cuda out directory
+            # if os.path.exists(cuda_out):
+            #     os.rmdir(cuda_out)
+            
             out_name = cuda_out + algorithms[i] + '_' + graph + '_cuda.out'
             
             if os.path.isfile(out_name):
@@ -78,10 +83,10 @@ if __name__ == "__main__":
             code_path = cpp_path[i]
             walk_code = os.walk(code_path)
 
-            # create cpp out directory
-            if os.path.exists(cpp_out):
-                os.rmdir(cpp_out)
-            os.mkdir(cpp_out)
+            # # create cpp out directory
+            # if os.path.exists(cpp_out):
+            #     os.rmdir(cpp_out)
+            # os.mkdir(cpp_out)
             out_name = cpp_out + algorithms[i] + '_' + graph + '_cpp.out'
             
             if os.path.isfile(out_name):
@@ -118,10 +123,10 @@ if __name__ == "__main__":
             code_path = omp_path[i]
             walk_code = os.walk(code_path)
 
-            # create omp out directory
-            if os.path.exists(omp_out):
-                os.rmdir(omp_out)
-            os.mkdir(omp_out)
+            # # create omp out directory
+            # if os.path.exists(omp_out):
+            #     os.rmdir(omp_out)
+            # os.mkdir(omp_out)
             out_name = omp_out + algorithms[i] + '_' + graph + '_omp.out'
             
             if os.path.isfile(out_name):

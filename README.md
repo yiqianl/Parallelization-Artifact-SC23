@@ -2,7 +2,7 @@
 
 The repo includes the codes, inputs, and scripts to run the experiments. Here follows an explaination for the folders/files.
 * All the codes for the experiments are in `codes` directory
-* The `indigo_include` contains all the header files
+* The `include` contains all the header files
 * The `scripts` contains all the Python scripts that help to run the tests and read the throughputs
 * The `run_all.sh` script will create `inputs` directory and download 5 inputs to it, it calls the `scripts/run_all_codes.py` script to run all the codes through all the inputs
 * The `run_cpp.sh` run C++ codes for partial experiment

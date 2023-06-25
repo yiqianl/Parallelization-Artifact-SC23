@@ -1,4 +1,3 @@
-
 /*
 This file is part of the Indigo2 benchmark suite version 0.9.
 

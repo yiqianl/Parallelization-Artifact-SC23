@@ -11,6 +11,7 @@ The repo includes the codes, inputs, and scripts to run the experiments. Here fo
 
 ## Software
 We used GCC 11.3.1 compiler for OpenMP and C++ codes, and NVCC 11.7 compiler for CUDA codes.
+The C++ codes are C++17 compliant.
 
 ## Restrictions
 Under CUDA Compute Capability prior to 6 (Pascal), objects of type "cuda::atomic" may not be used.

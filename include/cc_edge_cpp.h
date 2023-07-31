@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
   data_type* const label = new data_type [g.nodes];
 
   // cc
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
   for (int i = 0; i < runs; i++) {
     runtimes[i] = CPUcc_edge(g, label, sp, threadCount);

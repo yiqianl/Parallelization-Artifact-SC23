@@ -144,7 +144,7 @@ int main(int argc, char* argv[])
   if (cudaSuccess != cudaMemcpy(d_g.nlist, g.nlist, g.edges * sizeof(int), cudaMemcpyHostToDevice)) fprintf(stderr, "ERROR: copying of nlist to device failed\n");
 
   // launch kernel
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
   bool flag = true;
 

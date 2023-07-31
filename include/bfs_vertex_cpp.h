@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
   data_type* const distance = new data_type [g.nodes];
 
   // launch kernel
-  const int runs = 10;
+  const int runs = 3;
   double runtimes [runs];
   for (int i = 0; i < runs; i++) {
     runtimes[i] = CPPbfs_vertex(source, g, distance, threadCount);

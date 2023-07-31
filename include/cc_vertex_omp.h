@@ -138,7 +138,7 @@ int main(int argc, char* argv[])
   data_type* const label = new data_type [g.nodes];
 
   // cc
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
   bool flag = true;
   for (int i = 0; i < runs; i++) {

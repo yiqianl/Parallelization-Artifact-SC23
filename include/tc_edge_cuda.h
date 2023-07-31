@@ -177,7 +177,7 @@ int main(int argc, char* argv [])
   cudaMemcpy(d_sp, sp, sizeof(int) * g.edges, cudaMemcpyHostToDevice);
 
   // launch kernel
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
 
   for (int i = 0; i < runs; i++) {

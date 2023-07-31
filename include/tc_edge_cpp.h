@@ -164,7 +164,7 @@ int main(int argc, char* argv [])
   basic_t count = 0;
 
   // launch kernel
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
 
   for (int i = 0; i < runs; i++) {

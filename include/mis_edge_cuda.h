@@ -155,7 +155,7 @@ int main(int argc, char* argv[])
   if (cudaSuccess != cudaMalloc((void **)&d_sp, sizeof(int) * g.edges)) {fprintf(stderr, "ERROR: could not allocate d_sp\n"); exit(-1);}
   if (cudaSuccess != cudaMemcpy(d_sp, sp, sizeof(int) * g.edges, cudaMemcpyHostToDevice)) fprintf(stderr, "ERROR: copying of sp to device failed\n");
   
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
   for (int i = 0; i < runs; i++) {
     runtimes[i] = GPUmis_edge(d_g, d_sp, priority, status);

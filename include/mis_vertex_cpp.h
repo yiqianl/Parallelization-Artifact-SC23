@@ -109,7 +109,7 @@ int main(int argc, char* argv[])
   unsigned char* const status = new unsigned char [g.nodes];
 
   // launch kernel
-  const int runs = 10;
+  const int runs = 3;
   double runtimes [runs];
   for (int i = 0; i < runs; i++) {
     runtimes[i] = CPPmis_vertex(g, priority, status, threadCount);

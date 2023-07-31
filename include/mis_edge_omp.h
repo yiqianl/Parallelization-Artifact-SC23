@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
   data_type* const priority = new data_type [g.nodes];
   unsigned char* const status = new unsigned char [g.nodes];
 
-  const int runs = 10;
+  const int runs = 3;
   double runtimes [runs];
   for (int i = 0; i < runs; i++) {
     runtimes[i] = OMPmis_edge(g, sp, priority, status);

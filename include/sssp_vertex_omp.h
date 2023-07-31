@@ -171,7 +171,7 @@ int main(int argc, char* argv[])
   data_type* const distance = new data_type [g.nodes];
 
   // sssp
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
   bool flag = true;
   for (int i = 0; i < runs; i++) {

@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
   if (cudaSuccess != cudaMemcpy(d_g.eweight, g.eweight, g.edges * sizeof(int), cudaMemcpyHostToDevice)) fprintf(stderr, "ERROR: copying of eweight to device failed\n");
 
   // launch kernel
-  const int runs = 9;
+  const int runs = 3;
   double runtimes [runs];
   for (int i = 0; i < runs; i++) {
     runtimes[i] = GPUsssp_vertex(source, d_g, distance);

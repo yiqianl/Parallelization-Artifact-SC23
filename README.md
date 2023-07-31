@@ -2,7 +2,7 @@
 
 The repo includes the codes, inputs, and scripts to run the experiments. Here follows an explaination for the folders/files.
 * All the codes for the experiments are in `codes` directory
-* The Python notebooks that analyze the results and create figures are in `analysis` directory
+* The Jupyter Notebooks that analyze the results and create figures are in `analysis` directory
 * The `data` contains the data from our experiment, running Jupyter Notebooks through the data can generate the expected figures in the paper
 * The `include` contains all the header files
 * The `scripts` contains all the Python scripts that help to run the tests and read the throughputs
